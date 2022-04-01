@@ -22,8 +22,8 @@ public class ItemUtils {
      *  a
      *  aa
      */
-    public static SBMatrix<ItemStack> getRecipeMin(ItemStack[] itemStacks, int width, int height) {
-        return new SBMatrix<ItemStack>(itemStacks, ItemStack.class, width, height).cleanEmpty(new Predicate<ItemStack>() {
+    public static ItemMatrix<ItemStack> getRecipeMin(ItemStack[] itemStacks, int width, int height) {
+        return new ItemMatrix<ItemStack>(itemStacks, ItemStack.class, width, height).cleanEmpty(new Predicate<ItemStack>() {
             @Override
             public boolean test(ItemStack itemStack) {
                 return isAir(itemStack);
