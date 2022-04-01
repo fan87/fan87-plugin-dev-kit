@@ -21,7 +21,7 @@ public class LineWrapper {
             if (wasColorChar) {
                 wasColorChar = false;
                 cachedColor = currentColor;
-                Pattern pattern = Pattern.compile("[0-9A-FK-ORA-Fk-or]");
+                Pattern pattern = Pattern.compile("[0-9a-fkmolnr]");
                 if (pattern.matcher(c + "").matches()) {
                     if (c == 'r') {
                         currentColor = ChatColor.COLOR_CHAR + "r";
@@ -41,7 +41,7 @@ public class LineWrapper {
                 continue;
             }
             if (c == ' ') {
-                if ((currentLine + currentWord).replaceAll("(?i)\\u00A7[0-9A-FK-ORA-Fk-or]", "").length() > width) {
+                if ((currentLine + currentWord).replaceAll("§[0-9a-fklmnor]", "").length() > width) {
                     out.add(currentLine + lineSuffix);
                     currentLine = linePrefix + cachedColor + currentWord + " ";
                 } else {
