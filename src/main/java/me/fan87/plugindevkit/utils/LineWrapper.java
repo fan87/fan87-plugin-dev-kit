@@ -8,6 +8,7 @@ import java.util.regex.Pattern;
 
 public class LineWrapper {
 
+
     public static List<String> wrapLine(String input, String linePrefix, String lineSuffix, int width) {
         char[] array = input.toCharArray();
         List<String> out = new ArrayList<>();
