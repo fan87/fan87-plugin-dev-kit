@@ -6,6 +6,7 @@ public class CoolDownTimer extends Timer {
 
     public CoolDownTimer(long coolDown) {
         this.coolDown = coolDown;
+        setLastResetTime(0);
     }
 
     public boolean useItem() {
@@ -13,7 +14,7 @@ public class CoolDownTimer extends Timer {
     }
 
     public long getTimeLeft() {
-        return coolDown - getPassedTime();
+        return Math.max(0, coolDown - getPassedTime());
     }
 
 }

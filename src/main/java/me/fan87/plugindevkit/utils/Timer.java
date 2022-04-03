@@ -1,8 +1,13 @@
 package me.fan87.plugindevkit.utils;
 
+import lombok.Getter;
+import lombok.Setter;
+
 public class Timer {
 
-    private long resetTime = System.currentTimeMillis();
+    @Setter
+    @Getter
+    private long lastResetTime = System.currentTimeMillis();
 
     public Timer() {
 
@@ -21,11 +26,11 @@ public class Timer {
     }
 
     public void reset() {
-        resetTime = System.currentTimeMillis();
+        lastResetTime = System.currentTimeMillis();
     }
 
     public long getPassedTime() {
-        return System.currentTimeMillis() - resetTime;
+        return System.currentTimeMillis() - lastResetTime;
     }
 
 }
