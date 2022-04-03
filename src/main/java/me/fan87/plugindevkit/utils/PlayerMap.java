@@ -22,7 +22,7 @@ public class PlayerMap<T> {
     }
 
     public void set(Player player, T value) {
-        map.getOrDefault(player.getUniqueId(), value);
+        map.put(player.getUniqueId(), value);
     }
 
 }
