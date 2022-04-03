@@ -11,17 +11,6 @@ public class ItemUtils {
         return itemStack == null || itemStack.getType() == Material.AIR;
     }
 
-    /**
-     * I don't know how you explain it, just look at example:
-     * Input:
-     *
-     *  a
-     *  aa
-     *
-     * Output:
-     *  a
-     *  aa
-     */
     public static ItemMatrix<ItemStack> getRecipeMin(ItemStack[] itemStacks, int width, int height) {
         return new ItemMatrix<ItemStack>(itemStacks, ItemStack.class, width, height).cleanEmpty(new Predicate<ItemStack>() {
             @Override

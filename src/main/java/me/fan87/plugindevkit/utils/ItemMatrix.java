@@ -43,11 +43,22 @@ public class ItemMatrix<T extends ItemStack> {
         return column;
     }
 
-    public T[] getItems(int x1, int y1, int x2, int y2) {
-        int fromX = Math.min(x1, x2) + 1;
-        int fromY = Math.min(y1, y2) + 1;
-        int toX = Math.max(x1, x2) + 1;
-        int toY = Math.max(y1, y2) + 1;
+    @SuppressWarnings("untested")
+    public ItemStack[][] getItemsMatrix() {
+        ItemStack[][] itemsMatrix = new ItemStack[width][height];
+        for (int x = 0; x < width; x++) {
+            for (int y = 0; y < height; y++) {
+                itemsMatrix[x][y] = getItem(x, y);
+            }
+        }
+        return itemsMatrix;
+    }
+
+    public T[] getItems(int startX, int startY, int endX, int endY) {
+        int fromX = Math.min(startX, endX) + 1;
+        int fromY = Math.min(startY, endY) + 1;
+        int toX = Math.max(startX, endX) + 1;
+        int toY = Math.max(startY, endY) + 1;
         T[] output = (T[]) Array.newInstance(clazz, (toX - fromX + 1)*(toY - fromY + 1));
         int index = 0;
         for (int i = 0; i < content.length; i++) {
